@@ -1,0 +1,69 @@
+.feedback {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.feedback h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.feedback form {
+  display: flex;
+  flex-direction: column;
+}
+
+.feedback .form-group {
+  margin-bottom: 20px;
+}
+
+.feedback label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.feedback input[type="text"],
+.feedback input[type="email"],
+.feedback select,
+.feedback textarea {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+}
+
+.feedback input[type="text"],
+.feedback input[type="email"],
+.feedback select {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.feedback textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.feedback button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #336699;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.feedback #message {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.feedback #message.success {
+  color: green;
+}
+
+.feedback #message.error {
+  color: red;
+}

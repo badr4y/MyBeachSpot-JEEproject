@@ -1,0 +1,102 @@
+*{
+    padding: 0;
+    margin: 0
+}
+body{
+    background: #0f4cff;
+    width: 100%;
+    min-height: 100vh;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif;
+}
+.container{
+    background: #fff;
+    width: 400px;
+    height: 400px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 100px;
+    
+}
+.login-text{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+
+}
+
+.login-text+h2{
+    
+    text-decoration: underline rgb(128, 128, 128);
+    margin-bottom: 20px;
+    font-weight: bold;
+    
+}
+.login-text2+h1{
+    color: rgb(110, 193, 237);
+
+}
+.login-text3+h6{
+    color:grey;  
+} 
+.login-group input{
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 300;
+    color: #333;
+
+}
+.login-group input:focus, .login-group input:valid{
+    border-color: #1fc409;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    
+}
+/* unvalid email adress */
+.login-group input:invalid{
+    border-color: #f00;
+    box-shadow: 0 0 5px rgba(255,0,0,0.3);
+}
+.login-group button{
+    width: 30%;
+    padding: 10px;
+    border: none;
+    border-radius: 100px;
+    background: #310536;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    
+}
+.login-group button:hover{
+    transform: translateY(-5px);
+    background: #6c5ce7;
+    
+}
+body > div > form > div:nth-child(18) > a{
+    color: rgb(110, 193, 237);
+    text-decoration: underline;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+    
+
+  
+   
+ 
+
+    
+
+
+
