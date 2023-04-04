@@ -14,7 +14,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-@WebServlet(value = "/signup", urlPatterns = "/signup")
+@WebServlet(value = "/signup")
 public class SignUpServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
