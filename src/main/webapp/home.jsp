@@ -15,7 +15,7 @@
 </head>
 <body>
 <h1>Welcome to the Home Page</h1>
-<p>Hi <%= request.getAttribute("username") %>, you have successfully logged in!</p>
+<p>Hi <%= session.getAttribute("username") %>, you have successfully logged in!</p>
 </body>
 </html>
 
