@@ -18,9 +18,9 @@ import jakarta.servlet.http.HttpSession;
 public class SignUpServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/mydb";
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/mybeachspot";
     private static final String DB_USERNAME = "root";
-    private static final String DB_PASSWORD = "password";
+    private static final String DB_PASSWORD = "";
 
     private static final String SELECT_USER_SQL = "SELECT username FROM users WHERE username = ?";
     private static final String INSERT_USER_SQL = "INSERT INTO users (username, password_hash) VALUES (?, ?)";
