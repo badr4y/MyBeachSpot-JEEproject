@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Authenticator {
-    private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+    private static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String DB_URL = "jdbc:mysql://localhost:3306/mybeachspot"; // Change this to your database URL
     private static final String DB_USER = "root"; // Change this to your database username
     private static final String DB_PASSWORD = ""; // Change this to your database password
