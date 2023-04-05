@@ -65,13 +65,18 @@ public class PasswordHash {
         return sb.toString();
     }
 
-    private static byte[] hexToBytes(String hex) {
+    public static byte[] hexToBytes(String hex) {
+        if (hex.length() % 2 != 0) {
+            hex = "0" + hex; // add leading zero if input string has odd number of characters
+        }
         byte[] bytes = new byte[hex.length() / 2];
         for (int i = 0; i < hex.length(); i += 2) {
             bytes[i / 2] = (byte) Integer.parseInt(hex.substring(i, i + 2), 16);
         }
         return bytes;
     }
+
+
 
     public static String createHash(String password) throws Exception {
         SecureRandom random = new SecureRandom();

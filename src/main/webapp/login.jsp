@@ -7,10 +7,12 @@
 </head>
 <body>
 <h1>Login</h1>
-<% if (request.getAttribute("error") != null) { %>
-<div class="error"><%= request.getAttribute("error") %></div>
+<% if (request.getParameter("error") != null) { %>
+<div class="error">
+    <%= request.getParameter("error") %>
+</div>
 <% } %>
-<form action="${pageContext.request.contextPath}/login" method="post">
+<form action="${pageContext.request.contextPath}/loginServlet" method="post">
     <label for="username">Username:</label>
     <input type="text" id="username" name="username" required>
     <label for="password">Password:</label>
