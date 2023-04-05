@@ -1,18 +1,17 @@
 package com.example.mybeachspot;
 
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 @WebServlet(value = "/signup")
 public class SignUpServlet extends HttpServlet {
@@ -41,25 +40,18 @@ public class SignUpServlet extends HttpServlet {
         if (!password.equals(confirmPassword)) {
             error = "Passwords do not match";
         } else {
-            try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            }
-            try (Connection conn = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD)) {
-                PreparedStatement ps = conn.prepareStatement(SELECT_USER_SQL);
-                ps.setString(1, username);
-
-                ResultSet rs = ps.executeQuery();
-
-                if (rs.next()) {
-                    error = "Username already taken";
-                } else {
-                    String passwordHash = PasswordHash.createHash(password);
-
-                    ps = conn.prepareStatement(INSERT_USER_SQL);
+            if (Authenticator.authenticate(username, password)) {
+                error = "Username already taken";
+            } else {
+                try {
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+                try (Connection conn = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD)) {
+                    PreparedStatement ps = conn.prepareStatement(INSERT_USER_SQL);
                     ps.setString(1, username);
-                    ps.setString(2, passwordHash);
+                    ps.setString(2, PasswordHash.createHash(password));
 
                     ps.executeUpdate();
 
@@ -68,12 +60,12 @@ public class SignUpServlet extends HttpServlet {
 
                     response.sendRedirect("home.jsp");
                     return;
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    error = "An error occurred while accessing the database";
+                } catch (Exception e) {
+                    throw new ServletException("Error creating password hash", e);
                 }
-            } catch (SQLException e) {
-                e.printStackTrace();
-                error = "An error occurred while accessing the database";
-            } catch (Exception e) {
-                throw new ServletException("Error creating password hash", e);
             }
         }
 

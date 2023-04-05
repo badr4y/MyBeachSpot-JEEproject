@@ -8,9 +8,9 @@ import java.sql.SQLException;
 
 public class Authenticator {
     private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/mydb"; // Change this to your database URL
-    private static final String DB_USER = "username"; // Change this to your database username
-    private static final String DB_PASSWORD = "password"; // Change this to your database password
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/mybeachspot"; // Change this to your database URL
+    private static final String DB_USER = "root"; // Change this to your database username
+    private static final String DB_PASSWORD = ""; // Change this to your database password
 
     public static boolean authenticate(String username, String password) {
         Connection conn = null;
