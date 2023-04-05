@@ -25,17 +25,17 @@ public class Authenticator {
             // Establish a connection to the database
             conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
 
-            // Prepare a statement to retrieve the user's password from the database
-            stmt = conn.prepareStatement("SELECT password FROM users WHERE username = ?");
+            // Prepare a statement to retrieve the user's password hash from the database
+            stmt = conn.prepareStatement("SELECT password_hash FROM users WHERE username = ?");
             stmt.setString(1, username);
 
             // Execute the query
             rs = stmt.executeQuery();
 
-            // If a row was returned, check the password against the submitted password
+            // If a row was returned, check the password hash against the submitted password
             if (rs.next()) {
-                String dbPassword = rs.getString("password");
-                authenticated = dbPassword.equals(password);
+                String passwordHash = rs.getString("password_hash");
+                authenticated = PasswordHash.validatePassword(password, passwordHash);
             }
         } catch (SQLException | ClassNotFoundException e) {
             // Handle any exceptions that occur
@@ -50,5 +50,3 @@ public class Authenticator {
         return authenticated;
     }
 }
-
-
