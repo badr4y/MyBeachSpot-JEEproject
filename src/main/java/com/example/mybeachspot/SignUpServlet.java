@@ -41,6 +41,11 @@ public class SignUpServlet extends HttpServlet {
         if (!password.equals(confirmPassword)) {
             error = "Passwords do not match";
         } else {
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
             try (Connection conn = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD)) {
                 PreparedStatement ps = conn.prepareStatement(SELECT_USER_SQL);
                 ps.setString(1, username);
@@ -77,4 +82,3 @@ public class SignUpServlet extends HttpServlet {
         }
     }
 }
-
