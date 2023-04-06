@@ -27,6 +27,6 @@ public class RatingsServlet extends HttpServlet {
 
         // Pass the ratings to the JSP page
         request.setAttribute("ratings", ratings);
-        request.getRequestDispatcher("/WEB-INF/views/ratings.jsp").forward(request, response);
+        request.getRequestDispatcher("/ratings.jsp").forward(request, response);
     }
 }

@@ -19,7 +19,7 @@ public class SettingsServlet extends HttpServlet {
 
         // Pass the user's information to the JSP page
         request.setAttribute("user", user);
-        request.getRequestDispatcher("/WEB-INF/views/settings.jsp").forward(request, response);
+        request.getRequestDispatcher("/settings.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
