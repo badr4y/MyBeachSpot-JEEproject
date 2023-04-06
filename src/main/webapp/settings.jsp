@@ -16,11 +16,8 @@
 <body>
 <h1>Settings</h1>
 <form action="${pageContext.request.contextPath}/settings" method="POST">
-  <%--@declare id="password"--%><%--@declare id="username"--%><%--@declare id="email"--%>
   <label for="username">Username:</label>
   <input type="text" name="username" value="${user.username}" required><br><br>
-  <label for="email">Email:</label>
-  <input type="email" name="email" value="${user.email}" required><br><br>
   <label for="password">Password:</label>
   <input type="password" name="password" required><br><br>
   <input type="submit" value="Save">
