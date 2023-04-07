@@ -1,21 +1,69 @@
-h1 {
-    text-align: center;
+body {
+    background-color: #e2e8f0;
 }
-
-form {
-    width: 300px;
-    margin: auto;
+.card {
+    background-color: #cbd5e0;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
 }
-
-label, input {
+.card-header {
+    background-color: #4a5568;
+    border-bottom: none;
+}
+.card-footer {
+    background-color: #cbd5e0;
+    border-top: none;
+}
+.form-control {
+    background-color: #e2e8f0;
+    border: none;
+    border-radius: 0;
+    color: #4a5568;
+    font-weight: bold;
+    height: 50px;
+    padding: 0 15px;
+    transition: all 0.3s;
+}
+.form-control:focus {
+    background-color: #fff;
+    border: 2px solid #2d3748;
+    box-shadow: none;
+    outline: none;
+}
+.btn {
+    background-color: #2d3748;
+    border: none;
+    border-radius: 0;
+    font-weight: bold;
+    padding: 10px 30px;
+    transition: all 0.3s;
+}
+.btn:hover {
+    background-color: #1a202c;
+    color: #fff;
+}
+.btn:focus {
+    box-shadow: none;
+    outline: none;
+}
+.signup-card {
+    background-color: #4a5568;
+    color: #fff;
+    height: calc(100% - 80px);
+}
+.signup-card h3 {
+    font-weight: bold;
+    margin-top: 0;
+}
+.signup-card p {
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+.signup-card img {
     display: block;
-    margin-bottom: 10px;
+    margin: 0 auto;
+    max-height: 200px;
+    max-width: 100%;
 }
-
-input[type="submit"] {
-    margin-top: 10px;
-}
-
 .error {
     color: red;
     font-weight: bold;
