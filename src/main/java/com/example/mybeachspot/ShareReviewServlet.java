@@ -31,7 +31,8 @@ public class ShareReviewServlet extends HttpServlet {
             throws ServletException, IOException {
         String beachName = request.getParameter("beachName");
         String review = request.getParameter("review");
-        BeachReview beachReview = new BeachReview(beachName, review);
+        int rating = Integer.parseInt(request.getParameter("rating"));
+        BeachReview beachReview = new BeachReview(beachName, review, rating);
         beachReviews.add(beachReview);
         response.sendRedirect(request.getContextPath() + "/home");
     }

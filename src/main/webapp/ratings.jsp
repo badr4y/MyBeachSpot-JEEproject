@@ -14,6 +14,14 @@
   <title>Ratings</title>
 </head>
 <body>
+<nav>
+  <ul>
+    <li><a href="<%=request.getContextPath()%>/home">Home</a></li>
+    <li><a href="<%=request.getContextPath()%>/share-review">Share a Review</a></li>
+    <li><a href="<%=request.getContextPath()%>/ratings">Ratings</a></li>
+    <li><a href="<%=request.getContextPath()%>/settings">Settings</a></li>
+  </ul>
+</nav>
 <h1>Ratings</h1>
 <table>
   <thead>

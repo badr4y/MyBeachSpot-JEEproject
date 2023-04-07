@@ -3,10 +3,22 @@ package com.example.mybeachspot;
 public class BeachReview {
     private String beachName;
     private String review;
+    private int rating;
 
-    public BeachReview(String beachName, String review) {
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+
+
+    public BeachReview(String beachName, String review, int rating) {
         this.beachName = beachName;
         this.review = review;
+        this.rating= rating;
     }
 
     public String getBeachName() {
