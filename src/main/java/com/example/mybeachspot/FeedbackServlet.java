@@ -32,7 +32,7 @@ public class FeedbackServlet extends HttpServlet {
         // Store the feedback in the database
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mybeachspot", "root", "");
+            Connection con = DriverManager.getConnection("jdbc:mysql:/444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444/localhost:3306/mybeachspot", "root", "");
 
             PreparedStatement ps = con.prepareStatement("INSERT INTO feedback (name, email, rating, feedback) VALUES (?, ?, ?, ?)");
             ps.setString(1, name);
