@@ -19,7 +19,7 @@
 <nav>
     <ul>
         <li><a href="<%=request.getContextPath()%>/home">Home</a></li>
-        <li><a href="<%=request.getContextPath()%>/share-review">Share a Review</a></li>
+        <li><a href="<%=request.getContextPath()%>/share-review">Share your experience</a></li>
         <li><a href="<%=request.getContextPath()%>/ratings">Ratings</a></li>
         <li><a href="<%=request.getContextPath()%>/settings">Settings</a></li>
         <li style="float:right"><a href="<%=request.getContextPath()%>/login.jsp">Logout</a></li>

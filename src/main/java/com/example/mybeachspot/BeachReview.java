@@ -1,5 +1,7 @@
 package com.example.mybeachspot;
 
+import java.util.List;
+
 public class BeachReview {
     private String beachName;
     private String review;
@@ -12,8 +14,6 @@ public class BeachReview {
     public void setRating(int rating) {
         this.rating = rating;
     }
-
-
 
     public BeachReview(String beachName, String review, int rating) {
         this.beachName = beachName;
