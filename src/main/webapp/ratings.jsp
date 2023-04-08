@@ -1,4 +1,5 @@
-<%--
+<%@ page import="com.example.mybeachspot.BeachReview" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: HP
   Date: 4/6/2023
@@ -17,7 +18,7 @@
 <nav>
   <ul>
     <li><a href="<%=request.getContextPath()%>/home">Home</a></li>
-    <li><a href="<%=request.getContextPath()%>/share-review">Share a Review</a></li>
+    <li><a href="<%=request.getContextPath()%>/share-review">Share your experience</a></li>
     <li><a href="<%=request.getContextPath()%>/ratings">Ratings</a></li>
     <li><a href="<%=request.getContextPath()%>/settings">Settings</a></li>
   </ul>
@@ -28,17 +29,25 @@
   <tr>
     <th>Beach Name</th>
     <th>Rating</th>
+    <th>Review</th>
   </tr>
   </thead>
   <tbody>
-  <c:forEach items="${beachRatings}" var="beachRating">
-    <tr>
-      <td>${beachRating.beachName}</td>
-      <td>${beachRating.rating}</td>
-    </tr>
-  </c:forEach>
+  <%
+   // Get the list of data from the servlet
+   List<BeachReview> beachReviews = (List<BeachReview>) request.getAttribute("beachReviews");
+   // Loop through the list and generate a row for each item
+   for (BeachReview item : beachReviews) {
+   %>
+   <tr>
+     <td><%= item.getBeachName() %></td>
+     <td><%= item.getRating() %></td>
+     <td><%= item.getReview() %></td>
+   </tr>
+  <%
+  }
+  %>
   </tbody>
 </table>
 </body>
 </html>
-
