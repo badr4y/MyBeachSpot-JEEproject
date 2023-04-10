@@ -1,9 +1,14 @@
 package com.example.mybeachspot;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BeachReview {
+
+    private ArrayList<BeachReview> beachreviews= new ArrayList<>();
     private String beachName;
+
+    private int id_beach;
     private String review;
     private int rating;
 
@@ -15,10 +20,11 @@ public class BeachReview {
         this.rating = rating;
     }
 
-    public BeachReview(String beachName, String review, int rating) {
+    public BeachReview( String beachName, String review, int rating) {
         this.beachName = beachName;
         this.review = review;
         this.rating= rating;
+
     }
 
     public String getBeachName() {
@@ -35,5 +41,9 @@ public class BeachReview {
 
     public void setReview(String review) {
         this.review = review;
+    }
+
+    public void addReview(BeachReview b){
+        beachreviews.add(b);
     }
 }
