@@ -25,7 +25,7 @@ public class ShareReviewServlet extends HttpServlet {
             request.setAttribute("username", username);
             request.getRequestDispatcher("/share-review.jsp").forward(request, response);
         } else {
-            response.sendRedirect(request.getContextPath() + "/login");
+            response.sendRedirect(request.getContextPath() + "/loginServlet");
         }
     }
 

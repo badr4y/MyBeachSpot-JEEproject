@@ -13,6 +13,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Ratings</title>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/ratings.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/navbar.css">
 </head>
 <body>
 <nav>

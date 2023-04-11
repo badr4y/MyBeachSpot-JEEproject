@@ -12,10 +12,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/navbar.css">
 </head>
 <body>
-<h1>Welcome to the Home Page</h1>
-<p>Hi <%= session.getAttribute("username") %>, you have successfully logged in!</p>
+
 <nav>
     <ul>
         <li><a href="<%=request.getContextPath()%>/home">Home</a></li>
@@ -25,5 +25,9 @@
         <li style="float:right"><a href="<%=request.getContextPath()%>/login.jsp">Logout</a></li>
     </ul>
 </nav>
+
+<h1>Welcome to MyBeachSpot</h1>
+<p>Hi <%= session.getAttribute("username") %>, you have successfully logged in!</p>
+
 </body>
 </html>

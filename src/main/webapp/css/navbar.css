@@ -1,0 +1,33 @@
+nav {
+    background-color: rgb(0, 0, 0); /* set background color */
+    height: 50px; /* set height */
+    font-family: Arial, sans-serif;
+}
+
+ul {
+    list-style: none; /* remove bullet points from list */
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+li {
+    float: left; /* float list items to the left */
+}
+
+a {
+    display: block;
+    color: #fff; /* set link color */
+    text-align: center;
+    padding: 14px 16px; /* set link padding */
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: #555; /* set background color on hover */
+}
+
+/* add some space between links */
+li + li {
+    margin-left: 20px;
+}

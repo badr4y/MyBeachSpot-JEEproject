@@ -35,7 +35,7 @@ public class RatingsServlet extends HttpServlet {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                String Beachname = rs.getString("Beach name");
+                String Beachname = rs.getString("Beach_Name");
                 int rating = rs.getInt("Rating");
                 String Review = rs.getString("Review");
 

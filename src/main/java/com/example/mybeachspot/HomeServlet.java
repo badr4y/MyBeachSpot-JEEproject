@@ -19,7 +19,7 @@ public class HomeServlet extends HttpServlet {
             request.setAttribute("username", username);
             request.getRequestDispatcher("/home.jsp").forward(request, response);
         } else {
-            response.sendRedirect(request.getContextPath() + "/login");
+            response.sendRedirect(request.getContextPath() + "/loginServlet");
         }
     }
 }
