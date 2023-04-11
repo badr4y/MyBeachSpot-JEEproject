@@ -23,4 +23,3 @@ public class Activity {
         return level;
     }
 }
-

@@ -1,42 +1,32 @@
 package com.example.mybeachspot;
-
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/home")
-public class HomeServlet extends HttpServlet {
+@WebServlet("/beach")
+public class BeachItemServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        List<Beach> beaches = new ArrayList<>();
+        String id = request.getParameter("id");
         List<BeachReview> beachReviews = new ArrayList<>();
-        /* Add some dummy data for testing
-        ratings.add(new Rating("Beach A", 4));
-        ratings.add(new Rating("Beach B", 3));
-        ratings.add(new Rating("Beach C", 5));
-        ratings.add(new Rating("Beach D", 2));
-        ratings.add(new Rating("Beach E", 4));*/
-
-        // Retrieve a list of ratings from the database
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mybeachspot", "root", "");
 
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM beache LIMIT 10");
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM beache WHERE id=" + id);
             ResultSet rs = ps.executeQuery();
 
+            Beach beach = null;
             while (rs.next()) {
-                int id = rs.getInt("id");
+                int id1 = rs.getInt("id");
                 String Beachname = rs.getString("namemobileweb");
                 String beachdescription = rs.getString("descriptionmobileweb");
                 String parking = rs.getString("parking");
@@ -53,26 +43,34 @@ public class HomeServlet extends HttpServlet {
                 String photo_2 = rs.getString("photo_2");
                 String photo_3 = rs.getString("photo_3");
                 String photo_4 = rs.getString("photo_4");
+                PreparedStatement ps1 = con.prepareStatement("SELECT * FROM feedback where `Beach Name` like  ? ");
+                ps1.setString(1, "%" + Beachname + "%");
+                ResultSet rs1 = ps1.executeQuery();
 
+                while (rs1.next()) {
+                    String Beachname1 = rs1.getString("Beach Name");
+                    int rating = rs1.getInt("Rating");
+                    String review = rs1.getString("Review");
+                    BeachReview beachreview = new BeachReview(Beachname1, review, rating);
+                    beachReviews.add(beachreview);
 
+                }
 
-                BeachInfo beachinfo = new BeachInfo(Beachname, beachdescription,  parking, disabled_access, restrooms, dog_friendly, sandy_beach, fishing, boating, latitude, longitude, location, photo_1, photo_2, photo_3, photo_4);
-                Api_response weather = new Api_response(latitude,longitude);
-                weather.setWeather_info(latitude,longitude);
+                BeachInfo beachinfo = new BeachInfo(Beachname, beachdescription, parking, disabled_access, restrooms, dog_friendly, sandy_beach, fishing, boating, latitude, longitude, location, photo_1, photo_2, photo_3, photo_4);
+                Api_response weather = new Api_response(latitude, longitude);
+                weather.setWeather_info(latitude, longitude);
 
-                Beach beach = new Beach(id,beachinfo,weather,null );
-                beaches.add(beach);
-                System.out.println(beaches);
+                beach = new Beach(id1, beachinfo, weather, beachReviews);
+                System.out.println(beach);
 
             }
 
 
-
             // Pass the beach reviews to the JSP page
-            request.setAttribute("beaches", beaches);
-            request.getRequestDispatcher("/home.jsp").forward(request, response);
+            request.setAttribute("beach", beach);
+            request.getRequestDispatcher("/beach.jsp").forward(request, response);
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
-}
+    }
