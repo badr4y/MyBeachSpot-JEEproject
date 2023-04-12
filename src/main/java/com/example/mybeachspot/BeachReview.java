@@ -8,7 +8,7 @@ public class BeachReview {
     private ArrayList<BeachReview> beachreviews= new ArrayList<>();
     private String beachName;
 
-    private int id_beach;
+    private int beach_id;
     private String review;
     private int rating;
 
@@ -20,8 +20,8 @@ public class BeachReview {
         this.rating = rating;
     }
 
-    public BeachReview( String beachName, String review, int rating) {
-        this.beachName = beachName;
+    public BeachReview( int beach_id, String review, int rating) {
+        this.beach_id=beach_id;
         this.review = review;
         this.rating= rating;
 

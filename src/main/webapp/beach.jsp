@@ -59,21 +59,23 @@
 
 
 </div>
+
+
 <div class="addRating">
-
-
-<label for="rating">Rating:</label>
-<select id="rating" name="rating">
-    <option value="">Select a rating</option>
-    <option value="1">1 - Poor</option>
-    <option value="2">2 - Fair</option>
-    <option value="3">3 - Average</option>
-    <option value="4">4 - Good</option>
-    <option value="5">5 - Excellent</option>
-</select><br><br>
-<label for="review">Review:</label><br>
-<textarea id="review" name="review" rows="4" cols="50"></textarea><br><br>
-<input type="submit" value="Submit">
+<form action="/MyBeachSpot_war/beach?id=<%= beach.getId() %>" method="POST">
+    <label for="rating">Rating:</label>
+    <select id="rating" name="rating" required >
+        <option value="">Select a rating</option>
+        <option value="1">1 - Poor</option>
+        <option value="2">2 - Fair</option>
+        <option value="3">3 - Average</option>
+        <option value="4">4 - Good</option>
+        <option value="5">5 - Excellent</option>
+    </select><br><br>
+    <label for="review">Review:</label><br>
+    <textarea id="review" name="review" rows="4" cols="50" required ></textarea><br><br>
+    <input type="submit" value="Submit">
+</form>
 </div>
 
 
@@ -98,6 +100,7 @@
 %>
 
 </ul>
+
 
 </body>
 </html>

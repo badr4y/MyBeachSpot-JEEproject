@@ -14,44 +14,17 @@
 
     <meta charset="UTF-8">
     <title>Home</title>
-    <style>
-        /* navbar styles */
-        nav {
-            background-color: #333;
-            color: #fff;
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 20px;
-        }
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/home.css">
 
-        nav ul {
-            display: flex;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav ul li {
-            margin-left: 20px;
-        }
-
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            transition: color 0.2s ease-in-out;
-        }
-
-        nav ul li a:hover {
-            color: #a3a3a3;
-        }
-
-    </style>
 </head>
 <body>
-<nav>
+
+<nav class="navMenu">
+
     <ul>
+
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/nav_bar.css">
         <li><a href="<%=request.getContextPath()%>/home">Home</a></li>
-        <li><a href="<%=request.getContextPath()%>/share-review">Share your experience</a></li>
         <li><a href="<%=request.getContextPath()%>/ratings">Ratings</a></li>
         <li><a href="<%=request.getContextPath()%>/settings">Settings</a></li>
         <li style="float:right"><a href="<%=request.getContextPath()%>/login.jsp">Logout</a></li>
@@ -62,8 +35,7 @@
 <h1>List of Items</h1>
 
 
-<ul>
-
+<div class="container">
 
     <%
         // Get the list of data from the servlet
@@ -71,16 +43,33 @@
         // Loop through the list and generate a row for each item
         for (Beach item : beaches) {
     %>
-    <li>
-        <a href="/MyBeachSpot_war/beach?id=<%= item.getId() %>">
-        <h2><%= item.getBeachinfo().getName() %></h2>
-        <img src="<%= item.getBeachinfo().getPhoto_1() %>" alt="<%= item.getBeachinfo().getName() %>">
-        <p><%= item.getBeachinfo().getDescription() %></p>
-        </a>
-    </li>
+
+
+
+    <div class="blog-card spring-fever">
+        <div class="title-content">
+            <h3><a href="/MyBeachSpot_war/beach?id=<%= item.getId() %>"><%= item.getBeachinfo().getName() %></a></h3>
+            <div class="intro"><%= item.getBeachinfo().getDescription() %></div>
+        </div>
+        <div class="card-info">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim...
+            <a href="#">Read Article<span class="licon icon-arr icon-black"></span></a>
+        </div>
+        <div class="utility-info">
+            <ul class="utility-list">
+                <li><span class="licon icon-like"></span><a href="#">2</a></li>
+                <li><span class="licon icon-com"></span><a href="#">12</a></li>
+                <li><span class="licon icon-dat"></span>03 jun 2017</li>
+                <li><span class="licon icon-tag"></span><a href="#">Photos</a>, <a href="#">Nice</a></li>
+            </ul>
+        </div>
+        <div class="gradient-overlay"></div>
+        <div class="color-overlay"></div>
+    </div>
     <%
         }
-    %>
-</ul>
+    %><!-- /.blog-card -->
+
+</div>
 </body>
 </html>
