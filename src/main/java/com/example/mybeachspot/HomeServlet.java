@@ -32,7 +32,7 @@ public class HomeServlet extends HttpServlet {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mybeachspot", "root", "");
 
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM beache LIMIT 30");
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM beaches LIMIT 30");
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {

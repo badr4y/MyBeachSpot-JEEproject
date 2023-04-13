@@ -42,7 +42,7 @@ public class ShareReviewServlet extends HttpServlet {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mybeachspot", "root", "");
 
-            PreparedStatement ps = con.prepareStatement("INSERT INTO feedback (`Beach Name`, Rating, Review) VALUES (?, ?, ?)");
+            PreparedStatement ps = con.prepareStatement("INSERT INTO feedback (beach_id, Rating, Review) VALUES (?, ?, ?)");
             ps.setString(1, beachName);
             ps.setInt(2, rating);
             ps.setString(3, review);

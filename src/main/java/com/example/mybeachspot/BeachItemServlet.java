@@ -25,7 +25,7 @@ public class BeachItemServlet extends HttpServlet {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mybeachspot", "root", "");
 
-            PreparedStatement ps = con.prepareStatement("SELECT * FROM beache WHERE id=" + id);
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM beaches WHERE id=" + id);
             ResultSet rs = ps.executeQuery();
 
             Beach beach = null;
