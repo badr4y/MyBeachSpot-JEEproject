@@ -66,7 +66,7 @@ public class SignUpServlet extends HttpServlet {
                         HttpSession session = request.getSession();
                         session.setAttribute("username", username);
 
-                        response.sendRedirect(request.getContextPath() + "/home.jsp");
+                        response.sendRedirect(request.getContextPath() + "/home");
 
                         return;
                     }

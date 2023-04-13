@@ -1,5 +1,7 @@
+
 <%@ page import="com.example.mybeachspot.Beach" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: HP
   Date: 4/5/2023
@@ -14,8 +16,10 @@
 
     <meta charset="UTF-8">
     <title>Home</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/home.css">
 
+
+
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/home.css">
 </head>
 <body>
 
@@ -31,7 +35,7 @@
     </ul>
 </nav>
 <h1>Welcome to the Home Page</h1>
-<p>Hi <%= session.getAttribute("username") %>, you have successfully logged in!</p>
+<p>Hi <%=session.getAttribute("username")%>, you have successfully logged in!</p>
 <h1>List of Items</h1>
 
 
@@ -42,33 +46,40 @@
         List<Beach> beaches = (List<Beach>) request.getAttribute("beaches");
         // Loop through the list and generate a row for each item
         for (Beach item : beaches) {
+            List<String> img_url = new ArrayList<>();
+            if (item.getBeachinfo().getPhoto_1() != null) {
+                img_url.add(item.getBeachinfo().getPhoto_1().toString());
+            }
+            if (item.getBeachinfo().getPhoto_2() != null) {
+                img_url.add(item.getBeachinfo().getPhoto_2().toString());
+            }
+            if (item.getBeachinfo().getPhoto_3() != null) {
+                img_url.add(item.getBeachinfo().getPhoto_3().toString());
+            }
+            if (item.getBeachinfo().getPhoto_4() != null) {
+                img_url.add(item.getBeachinfo().getPhoto_4().toString());
+            }
+
+            String imageurl = img_url.get(0).toString();
+
     %>
 
 
 
     <div class="blog-card spring-fever">
+      <a href="/MyBeachSpot_war/beach?id=<%=item.getId()%>"><img src="<%=imageurl%>" class="background"></a>
         <div class="title-content">
-            <h3><a href="/MyBeachSpot_war/beach?id=<%= item.getId() %>"><%= item.getBeachinfo().getName() %></a></h3>
-            <div class="intro"><%= item.getBeachinfo().getDescription() %></div>
+            <h3><a href="/MyBeachSpot_war/beach?id=<%=item.getId()%>"><%=item.getBeachinfo().getName()%></a></h3>
+            <div class="intro"><%=item.getBeachinfo().getDescription()%></div>
         </div>
-        <div class="card-info">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim...
-            <a href="#">Read Article<span class="licon icon-arr icon-black"></span></a>
-        </div>
-        <div class="utility-info">
-            <ul class="utility-list">
-                <li><span class="licon icon-like"></span><a href="#">2</a></li>
-                <li><span class="licon icon-com"></span><a href="#">12</a></li>
-                <li><span class="licon icon-dat"></span>03 jun 2017</li>
-                <li><span class="licon icon-tag"></span><a href="#">Photos</a>, <a href="#">Nice</a></li>
-            </ul>
-        </div>
+
+
         <div class="gradient-overlay"></div>
         <div class="color-overlay"></div>
     </div>
     <%
-        }
-    %><!-- /.blog-card -->
+                }
+                %><!-- /.blog-card -->
 
 </div>
 </body>
