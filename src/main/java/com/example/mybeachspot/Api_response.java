@@ -21,6 +21,30 @@ public class Api_response {
       return latitude;
    }
 
+   public String getTemp() {
+      return temp;
+   }
+
+   public void setTemp(String temp) {
+      this.temp = temp;
+   }
+
+   public String getWind() {
+      return wind;
+   }
+
+   public void setWind(String wind) {
+      this.wind = wind;
+   }
+
+   public String getDescription() {
+      return description;
+   }
+
+   public void setDescription(String description) {
+      this.description = description;
+   }
+
    public void setLatitude(Double latitude) {
       this.latitude = latitude;
    }

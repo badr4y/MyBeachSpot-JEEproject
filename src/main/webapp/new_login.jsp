@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!--<title>Login & Registration Form | CoderGirl</title>-->
     <!---Custom CSS File--->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/logincss.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css">
 </head>
 <body>
 <% if (request.getParameter("error") != null) { %>

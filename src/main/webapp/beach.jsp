@@ -1,5 +1,8 @@
 <%@ page import="com.example.mybeachspot.Beach" %>
-<%@ page import="com.example.mybeachspot.BeachReview" %><%--
+<%@ page import="com.example.mybeachspot.BeachReview" %>
+<%@ page import="java.util.Objects" %>
+<%@ page import="java.text.DecimalFormat" %>
+<%@ page import="java.awt.*" %><%--
   Created by IntelliJ IDEA.
   User: hossa
   Date: 4/9/2023
@@ -10,6 +13,7 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/beachh.css">
   <style>
 .addRating{margin: 25px;
 }
@@ -34,6 +38,20 @@
       padding: 15px;
 
   }
+#current-temp1{
+    margin-top:0;
+    font-size:2em;
+    font-weight:bold;
+}
+#current-temp1:after{
+    content:"°";
+}
+#current-temp{
+    margin-top:0;
+    font-size:2em;
+    font-weight:bold;
+}
+
 
   </style>
 </head>
@@ -44,15 +62,42 @@
   // Get the list of data from the servlet
   Beach beach = (Beach) request.getAttribute("beach");
   // Loop through the list and generate a row for each item
-
-%>
+    double d = Double.parseDouble(beach.getWeather().getTemp().toString());
+ %>
 <div class="beach">
 
     <img src="<%= beach.getBeachinfo().getPhoto_1() %>" alt="<%= beach.getBeachinfo().getName() %>">
    <div class="info">
+       <span id="current-temp">
      <h2><%= beach.getBeachinfo().getName() %></h2>
      <p><%= beach.getBeachinfo().getDescription() %></p>
      <p><%= beach.getBeachinfo().getLocation() %></p>
+       <p>weather: <%= beach.getWeather().getDescription() %></p>
+       <p>wind: <%= beach.getWeather().getWind() %></p>
+       </span>
+       <p><span id="current-temp1">temp: <%= String.format("%.2f", d-273.15) %><span/><p/>
+       <div>
+           <% if (beach.getBeachinfo().getParking().toString().equals("Yes")){ %>
+           <p><span class="tag tag-cloud-functions tag-lg">Parking<span/><p/>
+           <%}%>
+           <%if (beach.getBeachinfo().getDisabled_access().toString().equals("Yes")){ %>
+           <p><span class="tag tag-cloud-functions tag-lg">Disability access<span/><p/>
+           <%}%>
+           <%if (Objects.equals(beach.getBeachinfo().getDog_friendly(), "Yes")){ %>
+           <p><span class="tag tag-cloud-functions tag-lg">Dog friendly<span/><p/>
+           <%}%>
+           <%if (Objects.equals(beach.getBeachinfo().getRestrooms(), "Yes")){ %>
+           <p><span class="tag tag-cloud-functions tag-lg">Restrooms<span/><p/>
+           <%}%>
+           <%if (Objects.equals(beach.getBeachinfo().getFishing(), "Yes")){ %>
+           <p><span class="tag tag-cloud-functions tag-lg">Fishing<span/><p/>
+           <%}%>
+           <%if (Objects.equals(beach.getBeachinfo().getBoating(), "Yes")){ %>
+           <p><span class="tag tag-cloud-functions tag-lg">Boating<span/><p/>
+           <%}%>
+       </div>
+
+
 
 
    </div>
