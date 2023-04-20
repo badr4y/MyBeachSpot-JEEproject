@@ -87,9 +87,9 @@ input[type="submit"]:hover {
 <option value="3">3 - Average</option>
 <option value="4">4 - Good</option>
 <option value="5">5 - Excellent</option>
-</select><br><br>
-<label for="review">Review:</label><br>
-<textarea id="review" name="review" rows="4" cols="50"></textarea><br><br>
+</select>
+<label for="review">Review:</label>
+<textarea id="review" name="review" rows="4" cols="50"></textarea>
 <input type="submit" value="Submit">
 </form>
 </body>
