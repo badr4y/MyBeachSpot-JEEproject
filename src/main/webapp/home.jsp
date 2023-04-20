@@ -13,6 +13,7 @@
     <meta charset="UTF-8">
     <title>Home</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/navbar.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/signup.css">
 </head>
 <body>
 
@@ -25,9 +26,13 @@
         <li style="float:right"><a href="<%=request.getContextPath()%>/login.jsp">Logout</a></li>
     </ul>
 </nav>
-
-<h1>Welcome to MyBeachSpot</h1>
-<p>Hi <%= session.getAttribute("username") %>, you have successfully logged in!</p>
+<div class="container">
+    <div class="form-container">
+        <h1>Welcome to MyBeachSpot</h1>
+        <p>Hi <%= session.getAttribute("username") %>, you have successfully logged in!</p>
+        <img src="<%=request.getContextPath()%>/logo.png" style="max-width:100%; height:auto;">
+    </div>
+</div>
 
 </body>
 </html>

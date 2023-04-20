@@ -12,7 +12,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Settings</title>
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/signup.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/navbar.css">
 </head>

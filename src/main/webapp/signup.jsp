@@ -10,7 +10,6 @@
 <html>
 <head>
   <title>Sign Up</title>
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/css/signup.css">
 
 </head>
